@@ -1,29 +1,29 @@
 <?php
 session_start();
+include_once '../conexao/config.php';
+include_once '../conexao/funcoes.php';
 
-
-if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] != 1) {
-    header("Location: ../index.php");
+// Verifica se o anunciante está logado
+if (!isset($_SESSION['anunciante_id'])) {
+    header('Location: ../login.php');
     exit();
 }
 
-include_once './conexao/config.php';
-include_once './conexao/funcoes.php';
+$id = $_SESSION['anunciante_id'];
 
 $db = (new Database())->getConnection();
 $anunciante = new Anunciante($db);
 
+// Executa a exclusão
+$excluido = $anunciante->excluir($id);
 
-if (!isset($_GET['id'])) {
-    echo "ID do anunciante não fornecido.";
+// Desloga e redireciona
+if ($excluido) {
+    session_destroy();
+    header('Location: ../index.php'); // Ou para uma página de confirmação
+    exit();
+} else {
+    $_SESSION['erro'] = "Erro ao excluir conta.";
+    header('Location: editar_anunciante.php');
     exit();
 }
-
-$id = $_GET['id'];
-
-
-$anunciante->excluir($id);
-
-header("Location: ../index.php");
-exit();
-?>

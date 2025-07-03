@@ -1,10 +1,8 @@
 <?php
 session_start();
 
-
 include_once './conexao/config.php';
 include_once './conexao/funcoes.php';
-
 
 $db = (new Database())->getConnection();
 $noticia = new Noticia($db);
@@ -24,13 +22,21 @@ if (isset($_GET['busca']) && !empty(trim($_GET['busca']))) {
     <meta charset="UTF-8">
     <title>Portal de Notícias</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" href="./styles/stylesIndex.css">
-    <link rel="stylesheet" href="./script/scriptIndex.js">
+    <link rel="stylesheet" href="./styles/stylesMenu.css">
+    <link rel="stylesheet" href="./styles/stylesTemaEscuro.css">
+
+    <script src="./script/scriptMenu.js"></script>
+    <script src="./script/scriptIndex.js"></script>
+    <script src="./script/scriptTemaEscuro.js"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Modern+Antiqua&display=swap" rel="stylesheet">
+</head>
 
 <body>
 
@@ -39,9 +45,12 @@ if (isset($_GET['busca']) && !empty(trim($_GET['busca']))) {
             <a href="./index.php">
                 <img src="./img/logo.png" alt="logo" class="logo">
             </a>
+            <!-- Botão hamburguer para mobile -->
+            <button class="hamburguer" onclick="toggleMenu()" aria-label="Abrir menu" style="background:none; border:none; cursor:pointer; display:none;">
+                <i class="fa fa-bars" style="font-size:2rem; color:#7a4a2e;"></i>
+            </button>
         </div>
         <nav class="header-nav">
-            <a href="#home">Home</a>
             <a href="#curiosidades">Curiosidades</a>
             <a href="#destaques">Destaques</a>
             <a href="#noticias">Notícias</a>
@@ -49,6 +58,7 @@ if (isset($_GET['busca']) && !empty(trim($_GET['busca']))) {
             <a href="#galeria">Galeria</a>
             <a href="./contato.php">Contato</a>
         </nav>
+
         <?php if (
             (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1) ||
             (isset($_SESSION['eh_funcionario']) && $_SESSION['eh_funcionario'] == true)
@@ -56,30 +66,45 @@ if (isset($_GET['busca']) && !empty(trim($_GET['busca']))) {
             <a href="./areaRestrita/nova_noticia.php" class="btn" style="background:#7a4a2e; color:#fff; border-radius:18px; padding:8px 24px; text-decoration:none;">+ Nova Notícia</a>
         <?php endif; ?>
 
-
         <?php if (isset($_SESSION['usuario_id'])): ?>
-            <a href="./areaRestrita/perfil.php" class="btn" style="background:#7a4a2e; color:#fff; border-radius:18px; padding:8px 24px; text-decoration:none;">Meu Perfil</a>
-        <?php endif; ?>
-
-        <?php if (isset($_SESSION['usuario_id'])): ?>
+            <a href="./areaRestrita/perfil.php" class="btn-interno" style="background:#7a4a2e; color:#fff; border-radius:18px; padding:8px 24px; text-decoration:none;">Meu Perfil</a>
             <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1): ?>
                 <a href="./admin/painel_admin.php" style="background:#7a4a2e; color:#fff; border-radius:18px; padding:8px 24px; text-decoration:none; font-weight:bold;">Painel do Admin</a>
             <?php endif; ?>
+        <?php endif; ?>
 
-        <?php else: ?>
-            <a href="./crudAnunciante/cadastrar_anunciante.php" class="btn btnAnunci" style="background:#7a4a2e; color:#fff; border-radius:18px; padding:10px 10px; font-size:1.1rem; text-decoration:none;">Anuncie</a>
+        <?php if (isset($_SESSION['anunciante_id'])): ?>
+            <a href="crudAnunciante/painel_anunciante.php" class="btn-interno-anunciante">Painel do Anunciante</a>
+        <?php endif; ?>
+
+        <?php
+        // Define destino do botão "Anuncie"
+        $destinoAnuncie = './crudAnunciante/cadastrar_anunciante.php'; // padrão para não logados
+
+        if (isset($_SESSION['anunciante_id'])) {
+            $destinoAnuncie = './crudAnuncio/cadastrar_anuncio.php';
+        } elseif (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1) {
+            $destinoAnuncie = './crudAnuncio/cadastrar_anuncio.php';
+        }
+        ?>
+
+        <a href="<?= $destinoAnuncie ?>" class="btn btnAnunci" style="background:#7a4a2e; color:#fff; border-radius:18px; padding:10px 28px; font-size:1.1rem; margin-right:10px; text-decoration:none;">Anuncie</a>
+
+        <?php if (!isset($_SESSION['usuario_id']) && !isset($_SESSION['anunciante_id'])): ?>
             <a href="./login.php" class="btn btnEntrar" style="background:#7a4a2e; color:#fff; border-radius:18px; padding:10px 28px; font-size:1.1rem; margin-right:10px; text-decoration:none;">Entrar</a>
             <a href="./crudUsuarios/cadastro_usuario.php" class="btn btnRegistrar registrar" style="background:#fff; color:#7a4a2e;border-radius:18px; padding:10px 25px; font-size:1.1rem; text-decoration:none;">Registrar-se</a>
         <?php endif; ?>
+        <button id="toggle-dark" style="margin-left: 20px; padding: 6px 12px; border-radius: 12px;">🌙 Alternar Tema</button>
+
+
         <div>
-            <?php if (isset($_SESSION['usuario_id'])): ?>
+            <?php if (isset($_SESSION['usuario_id']) || isset($_SESSION['anunciante_id'])): ?>
                 <form action="./logout.php" method="post" style="display:inline;">
                     <button class="btnEntrar" type="submit" style="background:#7a4a2e; color:#fff; border:none; border-radius:18px; padding:10px 28px; font-size:1.1rem;">Sair</button>
                 </form>
             <?php endif; ?>
         </div>
     </header>
-
 
     <section id="home" class="hero-section" style="display: flex; background:rgb(128, 75, 48); color: #fff; min-height: 300px; width: 100%; font-family: 'Modern Antiqua', serif;">
         <div class="hero-images"
@@ -486,6 +511,9 @@ if (isset($_GET['busca']) && !empty(trim($_GET['busca']))) {
                         <img src="./img/logo.png" alt="logo" class="logo" style="width: 270px; height: auto;">
                     </a>
                 </div>
+                <button class="hamburguer" onclick="toggleMenu()" aria-label="Abrir menu" style="background:none; border:none; cursor:pointer; display:none;">
+                    <i class="fa fa-bars" style="font-size:2rem; color:#7a4a2e;"></i>
+                </button>
             </div>
 
             <!-- Menus -->

@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-container {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+}
+
+/* Estilos do botão hambúrguer */
+.btn-interno {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.line {
+    height: 4px;
+    width: 30px;
+    background-color: #333;
+}
+
+/* Estilo da mini tela que aparece ao clicar */
+.mini-tela {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    display: none;
+    padding: 20px;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Exibir mini tela ao clicar no botão */
+.mini-tela.show {
+    display: block;
+}
+
+/* Estilo para quando o menu está aberto */
+.btn-interno.open .line:nth-child(1) {
+    transform: rotate(45deg);
+    position: absolute;
+}
+
+.btn-interno.open .line:nth-child(2) {
+    opacity: 0;
+}
+
+.btn-interno.open .line:nth-child(3) {
+    transform: rotate(-45deg);
+    position: absolute;
+}
+
+.hamburguer {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .hamburguer {
+        display: block;
+        position: absolute;
+        right: 24px;
+        top: 24px;
+        z-index: 1001;
+    }
+
+    .header-nav {
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 220px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        z-index: 1000;
+    }
+
+    .header-nav.ativo {
+        display: flex;
+    }
+}

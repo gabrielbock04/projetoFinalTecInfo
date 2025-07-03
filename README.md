@@ -39,26 +39,45 @@ portalNoticias/
 │   ├── funcoes.php
 │   └── verifica_login.php
 │
+├── crudAnunciante/
+│   ├── cadastrar_anunciante.php
+│   ├── editar_anunciante.php
+│   ├── processar_anunciante.php
+│   └── excluir_anunciante.php
+|
 ├── crudUsuarios/
 │   ├── atualizar_senha.php
 │   ├── cadastro_usuario.php
 │   ├── editar_usuario.php
 │   └── excluir_usuario.php
 │
+├── script/
+│   ├── scriptNovaNot.js
+│   ├── scriptIndex.js
+│   └── scriptEditNot.js
+│  
 ├── crudFuncionario/
 │   ├── cadastrar_funcionario.php
 │   ├── editar_funcionario.php
 │   ├── excluir_funcionario.php
 │   └── processar_funcionario.php
-│
+|
 ├── styles/
 │   ├── styles.css
+│   ├── stylesCadFunc.css
+│   ├── stylesCadUsu.css
+│   ├── stylesContato.css
+│   ├── stylesEditNot.css
+│   ├── stylesIndex.css
+│   ├── stylesLogin.css
 │   ├── stylesNovaNoticia.css
 │   ├── stylesPainelAdmin.css
-│   └── stylesPerfil.css
-│
-├── uploads/
-│
+│   ├── stylesPerfil.css
+│   ├── stylesRecSenha.css
+│   ├── stylesPolitica.css
+│   ├── stylesTermos.css
+│   ├── stylesVerifCod.css
+|
 ├── vendor/
 │   ├── composer.json
 │   └── composer.lock

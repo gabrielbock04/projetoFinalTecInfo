@@ -72,17 +72,17 @@ class Usuario
 
 
     public function deletar($id)
-{
-    // Deleta notícias vinculadas a esse autor
-    $stmtNoticia = $this->conn->prepare("DELETE FROM noticias WHERE autor = ?");
-    $stmtNoticia->execute([$id]);
+    {
+        // Deleta notícias vinculadas a esse autor
+        $stmtNoticia = $this->conn->prepare("DELETE FROM noticias WHERE autor = ?");
+        $stmtNoticia->execute([$id]);
 
-    // Agora deleta o usuário
-    $query = "DELETE FROM " . $this->table_name . " WHERE id = ?";
-    $stmt = $this->conn->prepare($query);
-    $stmt->execute([$id]);
-    return $stmt;
-}
+        // Agora deleta o usuário
+        $query = "DELETE FROM " . $this->table_name . " WHERE id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$id]);
+        return $stmt;
+    }
 
     // Gera um código de verificação e o salva no banco de dados
     public function gerarCodigoVerificacao($email)
@@ -254,33 +254,39 @@ class Comentario
 ?>
 
 <?php
-class Anuncio {
+class Anuncio
+{
     private $conn;
     private $table = "anuncio";
 
-    public function __construct($db) {
+    public function __construct($db)
+    {
         $this->conn = $db;
     }
 
-    public function criar($dados) {
-        $query = "INSERT INTO $this->table (nome, imagem, link, texto, ativo, destaque, data_cadastro, valorAnuncio)
-                  VALUES (:nome, :imagem, :link, :texto, :ativo, :destaque, NOW(), :valorAnuncio)";
+    public function criar($dados)
+    {
+        $query = "INSERT INTO $this->table (nome, imagem, link, texto, ativo, destaque, data_cadastro, valorAnuncio, anunciante_id)
+              VALUES (:nome, :imagem, :link, :texto, :ativo, :destaque, NOW(), :valorAnuncio, :anunciante_id)";
         $stmt = $this->conn->prepare($query);
         return $stmt->execute($dados);
     }
 
-    public function listarTodos() {
+    public function listarTodos()
+    {
         $query = "SELECT * FROM $this->table ORDER BY data_cadastro DESC";
         return $this->conn->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function buscarPorId($id) {
+    public function buscarPorId($id)
+    {
         $stmt = $this->conn->prepare("SELECT * FROM $this->table WHERE id = ?");
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function atualizar($id, $dados) {
+    public function atualizar($id, $dados)
+    {
         $query = "UPDATE $this->table SET nome = :nome, imagem = :imagem, link = :link, texto = :texto,
                   ativo = :ativo, destaque = :destaque, valorAnuncio = :valorAnuncio WHERE id = :id";
         $stmt = $this->conn->prepare($query);
@@ -288,23 +294,34 @@ class Anuncio {
         return $stmt->execute($dados);
     }
 
-    public function excluir($id) {
+    public function excluir($id)
+    {
         $stmt = $this->conn->prepare("DELETE FROM $this->table WHERE id = ?");
         return $stmt->execute([$id]);
+    }
+    public function buscarPorAnunciante($anunciante_id)
+    {
+        $query = "SELECT * FROM anuncio WHERE anunciante_id = :anunciante_id ORDER BY data_cadastro DESC";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([':anunciante_id' => $anunciante_id]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
 ?>
 
-<?php 
-class Anunciante {
+<?php
+class Anunciante
+{
     private $conn;
     private $table = "anunciantes";
 
-    public function __construct($db) {
+    public function __construct($db)
+    {
         $this->conn = $db;
     }
 
-    public function cadastrar($dados) {
+    public function cadastrar($dados)
+    {
         $query = "INSERT INTO $this->table (nome, email, telefone, cpf_cnpj, endereco_comercial,
                   categoria_anuncio, descricao_empresa, senha)
                   VALUES (:nome, :email, :telefone, :cpf_cnpj, :endereco_comercial, :categoria_anuncio, :descricao_empresa, :senha)";
@@ -312,24 +329,28 @@ class Anunciante {
         return $stmt->execute($dados);
     }
 
-    public function listarTodos() {
-        $query = "SELECT id, nome, email, telefone, cpf_cnpj, categoria_anuncio FROM $this->table";
+    public function listarTodos()
+    {
+        $query = "SELECT id, nome, email, telefone, cpf_cnpj, endereco_comercial, categoria_anuncio FROM $this->table";
         return $this->conn->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function buscarPorId($id) {
+    public function buscarPorId($id)
+    {
         $stmt = $this->conn->prepare("SELECT * FROM $this->table WHERE id = ?");
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function buscarPorEmail($email) {
+    public function buscarPorEmail($email)
+    {
         $stmt = $this->conn->prepare("SELECT * FROM $this->table WHERE email = ?");
         $stmt->execute([$email]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function atualizar($id, $dados) {
+    public function atualizar($id, $dados)
+    {
         $query = "UPDATE $this->table SET nome = :nome, email = :email, telefone = :telefone,
                   endereco_comercial = :endereco_comercial, categoria_anuncio = :categoria_anuncio,
                   descricao_empresa = :descricao_empresa WHERE id = :id";
@@ -338,7 +359,8 @@ class Anunciante {
         return $stmt->execute($dados);
     }
 
-    public function excluir($id) {
+    public function excluir($id)
+    {
         $stmt = $this->conn->prepare("DELETE FROM $this->table WHERE id = ?");
         return $stmt->execute([$id]);
     }

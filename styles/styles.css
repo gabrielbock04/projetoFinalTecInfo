@@ -51,7 +51,7 @@
   }
 
   .btnEntrar,
-  .btnRegistrar {
+  .btnRegistrar, .btnAnunci {
       font-family: 'Modern Antiqua', serif;
       white-space: nowrap;
   }

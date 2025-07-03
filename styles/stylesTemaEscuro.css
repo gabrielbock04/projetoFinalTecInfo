@@ -1,0 +1,40 @@
+/* Tema padrão (claro) */
+body {
+    background-color: #fff;
+    color: #222;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Tema escuro */
+body.dark-mode {
+    background-color: #121212;
+    color: #eee;
+}
+
+.dark-mode header,
+.dark-mode .container,
+.dark-mode .box,
+.dark-mode .painel-container,
+.dark-mode .painel-links {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+}
+
+.dark-mode a {
+    color: #ffa500;
+}
+
+.dark-mode input,
+.dark-mode select,
+.dark-mode textarea {
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+    border: 1px solid #444;
+}
+
+.dark-mode button,
+.dark-mode input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #666;
+}

@@ -20,7 +20,7 @@ session_start();
             <label>Email: <input type="email" name="email" required></label>
             <label>Telefone: <input type="text" name="telefone"></label>
             <label>CPF: <input type="text" name="cpf_cnpj" required></label>
-            <label>CNPJ: <input type="text" name="cpf_cnpj" required></label>
+            <!-- <label>CNPJ: <input type="text" name="cpf_cnpj" required></label> -->
             <label>Endereço Comercial: <input type="text" name="endereco_comercial"></label>
             <label>Categoria do Anúncio:
                 <select name="categoria_anuncio" required>

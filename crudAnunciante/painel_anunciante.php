@@ -90,8 +90,8 @@ function saudacao() {
                                 <td><?= $a['ativo'] ? 'Sim' : 'Não' ?></td>
                                 <td><?= $a['destaque'] ? 'Sim' : 'Não' ?></td>
                                 <td>
-                                    <a href="../anuncio/editar_anuncio.php?id=<?= $a['id'] ?>">Editar</a> | 
-                                    <form action="../anuncio/excluir_anuncio.php" method="POST" style="display:inline;" onsubmit="return confirm('Confirma exclusão deste anúncio?');">
+                                    <a href="../crudAnuncio/editar_anuncio.php?id=<?= $a['id'] ?>">Editar</a> | 
+                                    <form action="../crudAnuncio/excluir_anuncio.php" method="POST" style="display:inline;" onsubmit="return confirm('Confirma exclusão deste anúncio?');">
                                         <input type="hidden" name="id" value="<?= $a['id'] ?>">
                                         <button type="submit" class="excluir-btn">Excluir</button>
                                     </form>

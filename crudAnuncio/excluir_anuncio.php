@@ -4,29 +4,27 @@ include_once '../conexao/config.php';
 include_once '../conexao/funcoes.php';
 
 // Verifica permissão
-if (!isset($_SESSION['usuario_id']) || !in_array($_SESSION['tipo'], ['admin', 'anunciante'])) {
+if (!isset($_SESSION['usuario_id']) && !isset($_SESSION['anunciante_id']) && !isset($_SESSION['is_admin'])) {
     header('Location: ../login.php');
     exit();
 }
 
-$db = (new Database())->getConnection();
-$anuncio = new Anuncio($db);
-
-// Verifica se o ID foi enviado
-if (!isset($_GET['id'])) {
-    $_SESSION['erro'] = "ID do anúncio não informado.";
-    header('Location: ./');
+if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_POST['id'])) {
+    $_SESSION['erro'] = "Requisição inválida ou ID não informado.";
+    header('Location: painel_anunciante.php');
     exit();
 }
 
-$id = intval($_GET['id']);
+$id = intval($_POST['id']);
 
-// Busca o anúncio antes de excluir (para remover imagem, se tiver)
+$db = (new Database())->getConnection();
+$anuncio = new Anuncio($db);
+
+// Verifica se o anúncio existe
 $dados = $anuncio->buscarPorId($id);
-
 if (!$dados) {
     $_SESSION['erro'] = "Anúncio não encontrado.";
-    header('Location: ../painel_anunciante.php');
+    header('Location: painel_anunciante.php');
     exit();
 }
 
@@ -44,5 +42,5 @@ if ($ok) {
     $_SESSION['erro'] = "Erro ao excluir o anúncio.";
 }
 
-header('Location: ../painel_anunciante.php'); // Redireciona para listagem ou outra página
+header('Location:../crudAnunciante/painel_anunciante.php');
 exit();

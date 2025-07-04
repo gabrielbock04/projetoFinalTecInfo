@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
         $ext = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
         $nomeImagem = uniqid('anuncio_') . '.' . $ext;
-        $caminhoImagem = './uploads' . $nomeImagem;
+        $caminhoImagem = 'uploads/' . $nomeImagem;
 
         if (move_uploaded_file($_FILES['imagem']['tmp_name'], $caminhoImagem)) {
             $dados[':imagem'] = $nomeImagem;

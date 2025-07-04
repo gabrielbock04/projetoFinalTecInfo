@@ -31,6 +31,7 @@ if (isset($_GET['busca']) && !empty(trim($_GET['busca']))) {
     <script src="./script/scriptMenu.js"></script>
     <script src="./script/scriptIndex.js"></script>
     <script src="./script/scriptTemaEscuro.js"></script>
+    
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -277,7 +278,7 @@ if (isset($_GET['busca']) && !empty(trim($_GET['busca']))) {
             <h2 style="font-family: 'Modern Antiqua', serif; font-size: 2.4rem; color: #4b2a17; margin-bottom: 32px; font-weight: 400;">
                 Últimas Notícias
             </h2>
-            <form method="GET" class="pesquisa-bar-container pesquisa-bar-direcao">
+             <form method="GET" class="pesquisa-bar-container pesquisa-bar-direcao" action="#noticias">
                 <input class="pesquisa-bar" type="text" name="busca" placeholder="Pesquise por autor, título..." value="<?= isset($_GET['busca']) ? htmlspecialchars($_GET['busca']) : '' ?>">
                 <button type="submit" class="btn-lupa">
                     <svg width="32" height="32" fill="none" stroke="#7a4a2e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
@@ -286,6 +287,7 @@ if (isset($_GET['busca']) && !empty(trim($_GET['busca']))) {
                     </svg>
                 </button>
             </form>
+
             <div class="cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
                 <?php foreach ($noticias as $n): ?>
                     <div class="card" style="background:#fff; border-radius:18px; box-shadow:0 2px 12px rgba(0,0,0,0.07); padding:18px; display:flex; flex-direction:column;">

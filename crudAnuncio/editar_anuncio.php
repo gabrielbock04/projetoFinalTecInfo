@@ -69,19 +69,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Editar Anúncio</title>
 </head>
+
 <body>
 
     <h1>Editar Anúncio</h1>
 
-    <?php if (isset($_SESSION['sucesso'])): ?>
-        <p style="color: green;"><?php echo $_SESSION['sucesso']; unset($_SESSION['sucesso']); ?></p>
-    <?php elseif (isset($_SESSION['erro'])): ?>
-        <p style="color: red;"><?php echo $_SESSION['erro']; unset($_SESSION['erro']); ?></p>
-    <?php endif; ?>
+    <?php
+    $mensagem = '';
+    if (isset($_SESSION['sucesso'])) {
+        $mensagem = '<p style="color: green;">' . $_SESSION['sucesso'] . '</p>';
+        unset($_SESSION['sucesso']);
+    } elseif (isset($_SESSION['erro'])) {
+        $mensagem = '<p style="color: red;">' . $_SESSION['erro'] . '</p>';
+        unset($_SESSION['erro']);
+    }
+    ?>
+
+    <?= $mensagem ?>
+
 
     <form method="POST" enctype="multipart/form-data">
         <label>Nome:</label>
@@ -113,4 +123,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
 
 </body>
+
 </html>

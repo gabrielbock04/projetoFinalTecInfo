@@ -1,0 +1,204 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #804B30;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    min-height: 100vh;
+}
+
+.painel-container,
+.painel {
+    background: #fff;
+    color: #4B2A17;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+    padding: 40px 32px 32px 32px;
+    max-width: 1100px;
+    width: 98%;
+    margin: 40px auto;
+}
+
+h1,
+h2 {
+    color: #4B2A17;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+a,
+.painel-container a,
+.painel a {
+    color: #7a4a2e;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 4px;
+    transition: color 0.2s;
+}
+
+h1 {
+    color: #fff;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+a:hover,
+.painel-container a:hover,
+.painel a:hover {
+    color: #4B2A17;
+    text-decoration: underline;
+}
+
+.painel-links {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.painel-links a {
+    color: #fff;
+    background: #7a4a2e;
+    padding: 8px 18px;
+    border-radius: 18px;
+    margin: 0 6px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    display: inline-block;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.painel-links a:hover {
+    background: #4B2A17;
+    color: #FFD9B3;
+    text-decoration: none;
+}
+
+.painel .info,
+.painel .meus-anuncios {
+    margin-bottom: 32px;
+}
+
+.painel .info h3,
+.painel .meus-anuncios h3 {
+    color: #7a4a2e;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.painel .info p {
+    margin: 4px 0;
+    color: #4B2A17;
+    font-size: 1.08rem;
+}
+
+.painel .acoes {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+}
+
+.btn,
+.excluir-btn {
+    background: #7a4a2e;
+    color: #fff;
+    border: none;
+    border-radius: 18px;
+    padding: 10px 28px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 500;
+    transition: filter 0.2s, background 0.2s, color 0.2s;
+    display: inline-block;
+}
+
+.btn:hover,
+.excluir-btn:hover {
+    filter: brightness(0.92);
+    background: #4B2A17;
+    color: #FFD9B3;
+}
+
+.painel .btn,
+.painel .excluir-btn,
+.painel-links .btn,
+.painel-links .excluir-btn,
+.painel-container .btn,
+.painel-container .excluir-btn,
+.painel-links a:not(header a) {
+    color: #fff !important;
+}
+
+.painel .btn:hover,
+.painel .excluir-btn:hover,
+.painel-links .btn:hover,
+.painel-links .excluir-btn:hover,
+.painel-container .btn:hover,
+.painel-container .excluir-btn:hover,
+.painel-links a:not(header a):hover {
+    color: #fff !important;
+}
+
+.painel .meus-anuncios table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 18px;
+    background: #faf7f5;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    font-size: 1rem;
+}
+
+.painel .meus-anuncios th,
+.painel .meus-anuncios td {
+    padding: 12px 10px;
+    text-align: left;
+}
+
+.painel .meus-anuncios th {
+    background: #7a4a2e;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.painel .meus-anuncios tr:nth-child(even) {
+    background: #f3e7e1;
+}
+
+.painel .meus-anuncios tr:hover {
+    background: #f8e3d6;
+}
+
+.painel .meus-anuncios td a {
+    color: #7a4a2e;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.painel .meus-anuncios td a:hover {
+    background: #e7c7b2;
+    color: #4B2A17;
+}
+
+@media (max-width: 900px) {
+
+    .painel-container,
+    .painel {
+        padding: 18px 4px;
+        max-width: 99vw;
+    }
+
+    .painel .meus-anuncios table,
+    .painel .meus-anuncios th,
+    .painel .meus-anuncios td {
+        font-size: 0.98rem;
+    }
+}

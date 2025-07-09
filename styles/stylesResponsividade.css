@@ -1,0 +1,209 @@
+/* ========== RESET & BASE ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #804B30;
+  color: #333;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ========== LAYOUT ========== */
+.container {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* ========== HEADER ========== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(88, 55, 33);
+  padding: 15px 20px;
+  position: relative;
+}
+
+.logo {
+  width: 140px;
+}
+
+.hamburguer {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburguer span {
+  background-color: white;
+  height: 3px;
+  border-radius: 2px;
+}
+
+/* NAV DESKTOP */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-nav a,
+.header-nav button {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* ========== BOTÕES ========== */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 18px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn.primary {
+  background-color: #7a4a2e;
+  color: #fff;
+}
+
+.btn.secondary {
+  background-color: #fff;
+  color: #7a4a2e;
+  border: 1px solid #7a4a2e;
+}
+
+/* ========== FORMULÁRIOS ========== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+form input,
+form textarea,
+form select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  width: 100%;
+}
+
+form button[type="submit"] {
+  background-color: #7a4a2e;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background-color: #5c361f;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  background-color: #7a4a2e;
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+  margin-top: 40px;
+}
+
+/* ========== RESPONSIVIDADE ========== */
+@media (max-width: 992px) {
+  .header-nav {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .hamburguer {
+    display: flex;
+    z-index: 1001;
+  }
+
+  .header-nav {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #7a4a2e;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .header-nav.active {
+    display: flex;
+  }
+
+  .header-nav a,
+  .header-nav button {
+    font-size: 1rem;
+    text-align: left;
+    padding: 8px 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 15px;
+  }
+
+  .btn {
+    font-size: 0.95rem;
+    padding: 8px 16px;
+  }
+
+  .logo {
+    width: 120px;
+  }
+
+  .container {
+    width: 95%;
+  }
+}

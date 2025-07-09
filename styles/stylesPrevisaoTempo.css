@@ -1,0 +1,33 @@
+.tempo-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+    padding-right: 24px;
+}
+
+.tempo-titulo {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #4a3a1f;
+}
+
+.tempo-widget {
+    background: #2a3a5a;
+    color: #fff;
+    padding: 6px 18px;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.08);
+}
+
+.tempo-conteudo-lado {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+}

@@ -1,0 +1,174 @@
+body {
+    background: #f9f6f0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #7a4a2e;
+    margin-top: 32px;
+}
+
+form {
+    background: #fff;
+    max-width: 420px;
+    margin: 32px auto;
+    padding: 32px 24px 24px 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(122, 74, 46, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+label {
+    font-weight: 500;
+    color: #7a4a2e;
+    margin-bottom: 4px;
+    display: block;
+}
+
+input[type="text"],
+input[type="url"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d1bfae;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #f9f6f0;
+    color: #4a2a1a;
+    margin-bottom: 8px;
+    transition: border 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="url"]:focus,
+input[type="number"]:focus {
+    border-color: #7a4a2e;
+    outline: none;
+}
+
+input[type="file"] {
+    margin-bottom: 8px;
+}
+
+input[type="checkbox"] {
+    margin-right: 6px;
+}
+
+input[type="submit"] {
+    background: #7a4a2e;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s;
+}
+
+input[type="submit"]:hover {
+    background: #a1795c;
+}
+
+p[style*="color: green"] {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 18px;
+}
+
+p[style*="color: red"] {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 18px;
+}
+
+@media (max-width: 600px) {
+    form {
+        max-width: 98vw;
+        padding: 18px 6vw 18px 6vw;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+}
+
+.anuncio-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px rgba(122, 74, 46, 0.08);
+    max-width: 340px;
+    margin: 24px auto;
+    padding: 24px 18px 18px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.2s;
+    border: 1px solid #eee;
+}
+
+.anuncio-card:hover {
+    box-shadow: 0 6px 24px rgba(122, 74, 46, 0.16);
+}
+
+.anuncio-card img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    background: #f9f6f0;
+    border: 1px solid #e0d6c8;
+}
+
+.anuncio-card .anuncio-nome {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #7a4a2e;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.anuncio-card .anuncio-texto {
+    font-size: 1rem;
+    color: #4a2a1a;
+    margin-bottom: 14px;
+    text-align: center;
+    min-height: 32px;
+}
+
+.anuncio-card .anuncio-link {
+    display: inline-block;
+    background: #7a4a2e;
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s;
+    margin-top: 8px;
+}
+
+.anuncio-card .anuncio-link:hover {
+    background: #a1795c;
+    color: #fff;
+}
+
+@media (max-width: 600px) {
+    .anuncio-card {
+        max-width: 98vw;
+        padding: 16px 4vw;
+    }
+
+    .anuncio-card img {
+        width: 90vw;
+        max-width: 220px;
+        height: auto;
+    }
+}

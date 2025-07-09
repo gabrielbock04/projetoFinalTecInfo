@@ -1,0 +1,251 @@
+    
+    .galeria-carrossel::-webkit-scrollbar {
+        z-index: 10;
+        height: 8px;
+    }
+
+    .galeria-carrossel::-webkit-scrollbar-thumb {
+        background: #e0d6c7;
+        border-radius: 8px;
+    }
+
+    .galeria-carrossel::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .galeria-carrossel {
+        padding-bottom: 32px !important;
+        scrollbar-width: thin;
+        scrollbar-color: #e0d6c7 transparent;
+    }
+
+    .depoimentos-carrossel {
+        overflow: hidden;
+        position: relative;
+        height: 380px;
+    }
+
+    .depoimento-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateX(100%);
+        z-index: 1;
+        transition: opacity 0.5s, transform 0.7s;
+    }
+
+    .depoimento-slide.ativo {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateX(0);
+        z-index: 2;
+    }
+
+    .depoimento-slide.saindo {
+        opacity: 0;
+        transform: translateX(-100%);
+        z-index: 1;
+    }
+
+    .comentario-borda {
+        background: #2d1810;
+        border: 3px solid #a78a6d;
+        border-radius: 32px 32px 18px 18px;
+        padding: 36px 38px 32px 38px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
+        width: 100%;
+        max-width: 900px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 0 auto;
+    }
+
+    .prof-img {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 24px;
+        border: 3px solid #a78a6d;
+        background: #fff;
+    }
+
+    .hero-content a,
+    .btn-ver-historias {
+        background: #fff;
+        color: #7a4a2e;
+        font-family: 'Modern Antiqua', serif;
+        font-size: 1.15rem;
+        border-radius: 20px;
+        padding: 12px 36px;
+        margin-top: 10px;
+        text-decoration: none;
+        font-weight: bold;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+        transition: background 0.2s, color 0.2s;
+        display: inline-block;
+    }
+
+    .hero-content a:hover,
+    .btn-ver-historias:hover {
+        background: #b08350;
+        color: #fff;
+    }
+
+    .comentario-texto {
+        font-size: 1.6rem;
+        font-family: 'Modern Antiqua', serif;
+        margin-bottom: 17px;
+        line-height: 1.4;
+        color: #fff;
+    }
+
+    .comentario-nome {
+        font-weight: bold;
+        color: #fff;
+    }
+
+    .comentario-cargo {
+        font-size: 1.1rem;
+        color: #e0d6c7;
+    }
+
+    @media (max-width: 700px) {
+        .comentario-borda {
+            padding: 18px 10px 18px 10px !important;
+            border-radius: 22px 22px 14px 14px !important;
+        }
+
+        .prof-img {
+            width: 48px;
+            height: 48px;
+        }
+    }
+
+
+    .menu-container {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        padding: 20px;
+    }
+
+    /* Estilos do botão hambúrguer */
+    .btn-interno {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .line {
+        height: 4px;
+        width: 30px;
+        background-color: #333;
+    }
+
+    /* Estilo da mini tela que aparece ao clicar */
+    .mini-tela {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 250px;
+        height: 100%;
+        background-color: #333;
+        color: white;
+        display: none;
+        padding: 20px;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Exibir mini tela ao clicar no botão */
+    .mini-tela.show {
+        display: block;
+    }
+
+    /* Estilo para quando o menu está aberto */
+    .btn-interno.open .line:nth-child(1) {
+        transform: rotate(45deg);
+        position: absolute;
+    }
+
+    .btn-interno.open .line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .btn-interno.open .line:nth-child(3) {
+        transform: rotate(-45deg);
+        position: absolute;
+    }
+
+    /* RESPONSIVIDADE GERAL DA INDEX */
+    @media (max-width: 1200px) {
+        .hero-section, .galeria-carrossel, .cards-grid {
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+        }
+        .hero-content {
+            padding: 32px 10px !important;
+        }
+    }
+    /* MELHORIAS DE RESPONSIVIDADE GERAL */
+    @media (max-width: 900px) {
+        .hero-section, .carrossel-destaques, .galeria-carrossel, .cards-grid {
+            width: 100vw;
+            overflow-x: hidden;
+            box-sizing: border-box;
+        }
+        .destaque-card img, .hero-images img, .galeria-card img, .anuncio img, .card-img img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+        .hero-section, .noticia, .galeria, .feedback, .cards-grid {
+            padding-left: 0;
+            padding-right: 0;
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .hero-content {
+            padding: 32px 10px !important;
+        }
+        .hero-content h1, .feedback h2, .noticia h2 {
+            font-size: 1.1rem;
+            margin: 8px 0;
+        }
+        section, .hero-section, .noticia, .galeria, .feedback {
+            margin-bottom: 18px;
+            padding-bottom: 8px;
+        }
+        .btn, .btnAnunci, .btnEntrar, .btnRegistrar {
+            font-size: 0.92rem;
+            padding: 7px 8px;
+        }
+    }
+    @media (max-width: 600px) {
+        .header, .footer {
+            flex-direction: column;
+            padding: 6px 1vw;
+            height: auto;
+        }
+        .logo {
+            width: 80px;
+        }
+        .comentario-borda {
+            padding: 4px;
+        }
+    }

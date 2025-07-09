@@ -1,0 +1,287 @@
+.dark-mode,
+.dark-mode body,
+.dark-mode html {
+    background: #4d341c !important;
+    color: #e8d8c8 !important;
+}
+
+.dark-mode .header {
+    background: #261a12 !important;
+    border-bottom: 1px solid #3e2a1a !important;
+}
+
+.dark-mode .header-nav a,
+.dark-mode .header-nav a.active,
+.dark-mode .header-nav a:hover {
+    color: #f0e0d0 !important;
+    background: #261a12 !important;
+}
+
+.dark-mode .logo {
+    filter: brightness(0.9) sepia(0.2) hue-rotate(5deg) !important;
+}
+
+.dark-mode .hero-section {
+    background: #261a12 linear-gradient(rgba(46, 31, 20, 0.9), rgba(46, 31, 20, 0.7)) !important;
+    color: #f0e0d0 !important;
+}
+
+/* Textos e títulos */
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode .hero-content h1,
+.dark-mode .bem-vindo-cookies,
+.dark-mode .comentario-nome {
+    color: #ffd8b1 !important;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5) !important;
+}
+
+.dark-mode p,
+.dark-mode .hero-content p,
+.dark-mode .comentario-cargo {
+    color: #d8c8b8 !important;
+}
+
+/* Botões */
+.dark-mode .hero-content a,
+.dark-mode .btn-ver-historias,
+.dark-mode .btn-primary {
+    background: #5c3a21 !important;
+    color: #ffebd6 !important;
+    border: 1px solid #7a4a2e !important;
+}
+
+.dark-mode .hero-content a:hover,
+.dark-mode .btn-ver-historias:hover {
+    background: #7a4a2e !important;
+    color: #fff !important;
+}
+
+/* Formulários */
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select,
+.dark-mode .pesquisa-bar {
+    background: #2a1e15 !important;
+    color: #e8d8c8 !important;
+    border: 1px solid #4a3a2a !important;
+}
+
+.dark-mode .pesquisa-bar:focus {
+    border-color: #b89f7b !important;
+    box-shadow: 0 0 0 2px rgba(184, 159, 123, 0.2) !important;
+}
+
+.dark-mode .pesquisa-bar-container button[type="submit"],
+.dark-mode .btn-lupa {
+    background: #5c3a21 !important;
+    color: #ffebd6 !important;
+}
+
+/* Cards e containers */
+.dark-mode .galeria-card,
+.dark-mode .comentario-borda,
+.dark-mode .card {
+    background: #2a1e15 !important;
+    border: 1px solid #3a2a1a !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark-mode .galeria-card.ativo {
+    border-color: #b89f7b !important;
+    box-shadow: 0 4px 16px rgba(184, 159, 123, 0.25) !important;
+}
+
+.dark-mode .noticia,
+.dark-mode .galeria {
+    background: #a1795c !important;
+    color: #2a1e15 !important;
+}
+
+.dark-mode .feedback {
+    background-color: #2a1e15 !important;
+}
+
+/* Elementos interativos */
+.dark-mode .timeline-point {
+    background: #2a1e15 !important;
+    border: 2px solid #5c3a21 !important;
+}
+
+.dark-mode .timeline-point.ativo,
+.dark-mode .timeline-point:hover {
+    background: #b89f7b !important;
+    color: #2a1e15 !important;
+}
+
+/* Rodapé e áreas secundárias */
+.dark-mode footer {
+    background: #1e1610 !important;
+    border-top: 1px solid #3a2a1a !important;
+}
+
+/* Melhorias de contraste e acessibilidade */
+.dark-mode a {
+    color: #d4a574 !important;
+}
+
+.dark-mode a:hover {
+    color: #ffc58a !important;
+}
+
+.dark-mode ::selection {
+    background: #b89f7b !important;
+    color: #1a120b !important;
+}
+
+/* Scrollbar estilizada */
+.dark-mode ::-webkit-scrollbar {
+    width: 10px;
+    background: #1e1610 !important;
+}
+
+.dark-mode ::-webkit-scrollbar-thumb {
+    background: #4a3a2a !important;
+    border-radius: 5px;
+}
+
+.dark-mode ::-webkit-scrollbar-thumb:hover {
+    background: #5c4a3a !important;
+}
+
+/* --- INVERTENDO CORES (MODO ESCURO) --- */
+.dark-mode .previsao-container {
+    background: #121212 !important;
+    /* Preto profundo */
+    color: #e0e0e0 !important;
+    border: 1px solid #333 !important;
+}
+
+.dark-mode .previsao-titulo {
+    color: #ffd700 !important;
+    /* Amarelo dourado */
+}
+
+.dark-mode .previsao-tabela {
+    background: #1e1e1e !important;
+}
+
+.dark-mode .previsao-tabela th {
+    background: #2a2a2a !important;
+    color: #ffd700 !important;
+}
+
+.dark-mode .previsao-tabela td {
+    background: #252525 !important;
+    color: #ffffff !important;
+    border: 1px solid #333 !important;
+}
+
+/* Destaques de temperatura */
+.dark-mode .temp-max {
+    color: #ff6b6b !important;
+    /* Vermelho claro */
+}
+
+.dark-mode .temp-min {
+    color: #66b3ff !important;
+    /* Azul claro */
+}
+
+.dark-mode .precipitacao {
+    color: #88ccff !important;
+    /* Azul pastel */
+}
+
+/* Barra de pesquisa */
+.dark-mode .pesquisa-input {
+    background: #f5e8d8 !important;
+    /* Bege claro */
+    color: #181818 !important;
+    /* Texto escuro */
+    border: 1px solid #b89f7b !important;
+}
+
+.dark-mode .pesquisa-input::placeholder {
+    color: #7a4a2e !important;
+    /* Placeholder escuro */
+}
+
+/* Coordenadas */
+.dark-mode .coordenadas {
+    color: #aaa !important;
+}
+
+.dark-mode .noticias-area {
+    background: #181818 !important;
+    color: #f5e8d8 !important;
+}
+
+
+/* Modo escuro para página de contato/política */
+.dark-mode .container-politica {
+    background: #2a1e15 !important;
+    color: #e8d8c8 !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4) !important;
+}
+
+.dark-mode form label {
+    color: #ffd8b1 !important;
+}
+
+.dark-mode input[type="text"],
+.dark-mode input[type="email"],
+.dark-mode textarea {
+    background: #1e1610 !important;
+    color: #e8d8c8 !important;
+    border: 1px solid #4a3a2a !important;
+}
+
+.dark-mode textarea {
+    resize: vertical;
+}
+
+.dark-mode button[type="submit"] {
+    background-color: #7a4a2e !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+.dark-mode button[type="submit"]:hover {
+    filter: brightness(0.92) !important;
+}
+
+/* Modo escuro para carrossel de anúncios */
+.dark-mode .anuncios-carousel-container {
+    background: #2a1e15 !important;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18) !important;
+}
+.dark-mode .anuncios-carousel-row {
+    background: transparent !important;
+}
+.dark-mode .anuncio {
+    background: #3a2617 !important;
+    border-color: #5c3a21 !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18) !important;
+}
+.dark-mode .anuncio h3 {
+    color: #ffd8b1 !important;
+}
+.dark-mode .anuncio p {
+    color: #e8d8c8 !important;
+}
+.dark-mode .anuncio a {
+    background: #7a4a2e !important;
+    color: #fff !important;
+    border: 1px solid #b89f7b !important;
+}
+.dark-mode .anuncio a:hover {
+    background: #b89f7b !important;
+    color: #4b2a17 !important;
+}
+.dark-mode .anuncio img {
+    background: #2a1e15 !important;
+    filter: brightness(0.92) contrast(1.08);
+}
+

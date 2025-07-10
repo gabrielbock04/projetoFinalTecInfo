@@ -86,6 +86,10 @@ body {
         animation: fadeIn 0.18s;
     }
 
+    .user-dropdown-menu.show {
+        display: flex !important;
+    }
+
     .user-dropdown-menu a,
     .user-dropdown-menu button {
         display: block;
@@ -146,7 +150,7 @@ body {
     }
 
     .hamburguer-user {
-        display: flex;
+        display: flex !important;
         align-items: center;
         justify-content: center;
         background: none;
@@ -157,6 +161,8 @@ body {
         margin-left: 4px;
         transition: background 0.15s;
         border-radius: 10px;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
     .hamburguer-user:focus,
@@ -386,7 +392,7 @@ body {
         .hamburguer-user {
             display: none !important;
         }
-
+        
         .mobile-menu-panel {
             display: none;
             position: fixed;

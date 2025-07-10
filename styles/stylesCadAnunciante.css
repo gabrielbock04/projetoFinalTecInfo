@@ -34,6 +34,31 @@ body {
     text-align: center;
 }
 
+/* Estilos para mensagens de erro e sucesso */
+.erro {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ffcdd2;
+    margin-bottom: 16px;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+}
+
+.sucesso {
+    background-color: #e8f5e8;
+    color: #2e7d32;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #c8e6c9;
+    margin-bottom: 16px;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+}
+
 form {
     width: 100%;
     display: flex;
@@ -49,7 +74,9 @@ label {
 
 input[type="text"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+select,
+textarea {
     width: 100%;
     padding: 10px;
     border-radius: 8px;

@@ -343,6 +343,11 @@ class Anunciante
 
     public function cadastrar($dados)
     {
+        // Se cpf_cnpj estiver vazio, define como NULL
+        if (empty($dados['cpf_cnpj'])) {
+            $dados['cpf_cnpj'] = null;
+        }
+        
         $query = "INSERT INTO $this->table (nome, email, telefone, cpf_cnpj, endereco_comercial,
                   categoria_anuncio, descricao_empresa, senha)
                   VALUES (:nome, :email, :telefone, :cpf_cnpj, :endereco_comercial, :categoria_anuncio, :descricao_empresa, :senha)";
@@ -372,6 +377,11 @@ class Anunciante
 
     public function atualizar($id, $dados)
     {
+        // Se cpf_cnpj estiver vazio, define como NULL
+        if (isset($dados['cpf_cnpj']) && empty($dados['cpf_cnpj'])) {
+            $dados['cpf_cnpj'] = null;
+        }
+        
         $query = "UPDATE $this->table SET nome = :nome, email = :email, telefone = :telefone,
                   endereco_comercial = :endereco_comercial, categoria_anuncio = :categoria_anuncio,
                   descricao_empresa = :descricao_empresa WHERE id = :id";

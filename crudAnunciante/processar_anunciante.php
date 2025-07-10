@@ -25,11 +25,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ];
 
     // Validação básica
-    if (empty($dados['nome']) || empty($dados['email']) || empty($_POST['senha'])) {
-        $_SESSION['erro'] = 'Preencha nome, e-mail e senha.';
-        header('Location: cadastrar_anunciante.php');
-        exit();
-    }
+   if (empty($dados['nome']) || empty($dados['email']) || empty($_POST['senha'])) {
+    $_SESSION['erro'] = 'Preencha nome, e-mail e senha.';
+    header('Location: cadastrar_anunciante.php');
+    exit();
+}
 
     try {
         $db = (new Database())->getConnection();

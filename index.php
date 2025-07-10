@@ -87,7 +87,9 @@ if (isset($_GET['busca']) && !empty(trim($_GET['busca']))) {
                 <a href="./login.php" class="btn btnEntrar" style="background:#7a4a2e; color:#fff; border-radius:18px; padding:10px 28px; font-size:1.1rem; margin-right:10px; text-decoration:none;">Entrar</a>
                 <a href="./crudUsuarios/cadastro_usuario.php" class="btn btnRegistrar registrar" style="background:#fff; color:#7a4a2e;border-radius:18px; padding:10px 25px; font-size:1.1rem; text-decoration:none;">Registrar-se</a>
             <?php endif; ?>
-            <button class="hamburguer-user" type="button" tabindex="0" aria-label="Abrir menu do usuário" onclick="toggleUserMenu(event)" style="background:none; border:none; cursor:pointer; margin-left:8px; padding:8px; display:flex; align-items:center; justify-content:center;">
+
+            <!-- Menu Hambúrguer - sempre visível -->
+            <button class="hamburguer-user" type="button" tabindex="0" aria-label="Abrir menu do usuário" onclick="toggleUserMenu(event)" style="background:none; border:none; cursor:pointer; margin-left:8px; padding:8px; display:flex !important; align-items:center; justify-content:center; visibility:visible !important; opacity:1 !important; position:relative !important; z-index:9999 !important;">
                 <i class="fa fa-bars" style="font-size:2.2rem; color:#7a4a2e;"></i>
             </button>
             <div id="user-dropdown" class="user-dropdown-menu">
@@ -104,6 +106,11 @@ if (isset($_GET['busca']) && !empty(trim($_GET['busca']))) {
                     <form action="./logout.php" method="post" style="margin:0;">
                         <button type="submit" class="sair-link">Sair</button>
                     </form>
+                <?php else: ?>
+                    <!-- Menu para usuários não logados -->
+                    <a href="./login.php" class="perfil-link">Entrar</a>
+                    <a href="./crudUsuarios/cadastro_usuario.php" class="admin-link">Registrar-se</a>
+                    <a href="./crudAnunciante/cadastrar_anunciante.php" class="admin-link">Cadastrar Anunciante</a>
                 <?php endif; ?>
             </div>
         </div>
@@ -547,12 +554,15 @@ if (isset($_GET['busca']) && !empty(trim($_GET['busca']))) {
                         <img src="./img/logo.png" alt="logo" class="logo" style="width: 270px; height: auto;">
                     </a>
                 </div>
-                <button class="hamburguer" onclick="toggleMenu()" aria-label="Abrir menu" style="background:none; border:none; cursor:pointer; display:none;">
+                <button id="btn-hamburguer" class="hamburguer" onclick="toggleMenu()" aria-label="Abrir menu" style="background:none; border:none; cursor:pointer; display:none;">
                     <i class="fa fa-bars" style="font-size:2rem; color:#7a4a2e;"></i>
                 </button>
             </div>
 
             <!-- Menus -->
+
+                            
+
 
             <div style="flex: 1 1 160px; min-width: 160px; display: flex; flex-direction: column; gap: 4px;">
                 <div style="font-size: 1rem; color: rgb(199, 158, 134); margin-bottom: 10px; letter-spacing: 1px;">Descubra</div>

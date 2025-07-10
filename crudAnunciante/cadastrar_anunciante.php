@@ -20,6 +20,17 @@ session_start();
     <div class="funcionario-container">
         <div class="container-cadastro">
             <h1>Cadastrar Anunciante</h1>
+            
+            <?php if (isset($_SESSION['erro'])): ?>
+                <div class="erro"><?= $_SESSION['erro'] ?></div>
+                <?php unset($_SESSION['erro']); ?>
+            <?php endif; ?>
+            
+            <?php if (isset($_SESSION['sucesso'])): ?>
+                <div class="sucesso"><?= $_SESSION['sucesso'] ?></div>
+                <?php unset($_SESSION['sucesso']); ?>
+            <?php endif; ?>
+            
             <form action="processar_anunciante.php" method="POST">
 
                 <label>Nome ou Empresa: <input type="text" name="nome" required></label>
@@ -29,7 +40,7 @@ session_start();
                 <!-- Tipo de documento -->
                 <label>
                     Tipo de Documento:
-                    <select id="tipoDocumento" onchange="alternarCpfCnpj()" required>
+                    <select id="tipoDocumento" name="tipo_documento" onchange="alternarCpfCnpj()" required>
                         <option value="">Selecione</option>
                         <option value="CPF">CPF</option>
                         <option value="CNPJ">CNPJ</option>
@@ -39,14 +50,14 @@ session_start();
                 <!-- CPF -->
                 <div id="campoCPF" style="display:none;">
                     <label>CPF:
-                        <input type="text" name="cpf_cnpj" id="cpfInput" placeholder="Apenas números">
+                        <input type="text" name="cpf_cnpj" id="cpfInput" pattern="\d{11}" placeholder="Apenas números" required>
                     </label>
                 </div>
 
                 <!-- CNPJ -->
                 <div id="campoCNPJ" style="display:none;">
                     <label>CNPJ:
-                        <input type="text" name="cpf_cnpj" id="cnpjInput" pattern="\d{14}" placeholder="Apenas números">
+                        <input type="text" name="cpf_cnpj" id="cnpjInput" pattern="\d{14}" placeholder="Apenas números" required>
                     </label>
                 </div>
 
@@ -97,6 +108,7 @@ session_start();
             </form>
             <a href="../index.php" class="btn-voltar">Voltar</a>
         </div>
+    </div>
 </body>
 
 </html>

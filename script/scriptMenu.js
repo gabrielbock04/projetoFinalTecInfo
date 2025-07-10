@@ -19,15 +19,20 @@ function toggleUserMenu(event) {
     event && event.preventDefault && event.preventDefault();
     const dropdown = document.getElementById('user-dropdown');
     const btn = document.querySelector('.hamburguer-user');
+    console.log('dropdown encontrado:', dropdown);
+    console.log('btn encontrado:', btn);
     const isOpen = dropdown.classList.contains('show');
+    console.log('menu está aberto:', isOpen);
     if (!isOpen) {
         dropdown.classList.add('show');
+        console.log('menu aberto');
         setTimeout(() => {
             document.addEventListener('mousedown', closeUserMenuOnClickOutside);
             document.addEventListener('keydown', closeUserMenuOnEsc);
         }, 0);
     } else {
         dropdown.classList.remove('show');
+        console.log('menu fechado');
         document.removeEventListener('mousedown', closeUserMenuOnClickOutside);
         document.removeEventListener('keydown', closeUserMenuOnEsc);
     }
